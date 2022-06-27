@@ -42,6 +42,7 @@ Doubts :
 
 
 
+<hr style="border:5px solid gray">
 
 
 # Train your own network
