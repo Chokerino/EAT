@@ -6,7 +6,7 @@ I have tried to incorporate embeddings generated from GNN to the EAT architectur
  - [train_gnn.py](https://github.com/Chokerino/EAT/blob/main/train_gnn.py): This script is used to train the GNN. The model was trained to predict the `class` from the CATH heirarchy and achieved ~81% accuracy. The hyperparameters used gave the best performance but using a bigger model might yield better results which could not be tried due to computational restraints. 
  - [EAT.ipynb](https://github.com/Chokerino/EAT/blob/main/EAT.ipynb): Updated it to be more readable and contains the new results aswell. Might take some time to render. 
 
-Only 15k samples were used for now. To compare, the original model was run on the same samples. 
+Only 15k samples(out of 66k) were used for now. To compare, the original model was run on the same samples. 
 
 <figure>
   <p align = "center">
