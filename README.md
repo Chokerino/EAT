@@ -1,6 +1,42 @@
 # EAT
 
-Reproduction is straight forward and implemented by the authors, so I have not added anything in that front. I wanted to see how much improvement has batch hard soft margin loss achieved over using the classic triplet loss. Using the traditional method has one clear disadvantage - we cannot utilize the CATH heirarchies for the data triplets. In [work.ipynb](https://github.com/Chokerino/EAT/blob/main/work.ipynb), I have replicated the t-SNE results and generated t-SNE plots for triplet loss. 
+`Update` - 
+I have tried to incorporate embeddings generated from GNN to the EAT architecture. The GNN's were trained from scratch using [DGL](https://github.com/dmlc/dgl) and the graphs were generated using [Graphein](https://github.com/a-r-j/graphein). 
+ - [gen_graphs.py](https://github.com/Chokerino/EAT/blob/main/gen_graphs.py): This script uses the CATH domains to get the protein subsequences and then generates their graphs using Graphein. (modify [this](https://github.com/Chokerino/EAT/blob/ee82678ac677299bad4dce07317e08705a20f764/gen_graphs.py#L252) to generate for all the available proteins.)
+ - [train_gnn.py](https://github.com/Chokerino/EAT/blob/main/train_gnn.py): This script is used to train the GNN. The model was trained to predict the `class` from the CATH heirarchy and achieved ~81% accuracy. The hyperparameters used gave the best performance but using a bigger model might yield better results which could not be tried due to computational restraints. 
+ - [EAT.ipynb](https://github.com/Chokerino/EAT/blob/main/EAT.ipynb): Updated it to be more readable and contains the new results aswell. Might take some time to render. 
+
+Only 15k samples were used for now. To compare, the original model was run on the same samples. 
+
+<figure>
+  <p align = "center">
+  <img
+  src="https://github.com/Chokerino/EAT/blob/main/data/ProtTucker/plots/orignal_model_embeddings_15k-min.png"
+  alt="Original Embeddings" width="500" height="500" >
+  </p>
+  <p align = "center">
+	Original Model 15k Samples
+</p>
+</figure>
+
+<figure>
+  <p align = "center">
+  <img
+  src="https://github.com/Chokerino/EAT/blob/main/data/ProtTucker/plots/gnn_model_embeddings.png"
+  alt="Original Embeddings" width="500" height="500" >
+  </p>
+  <p align = "center">
+	Original Model + GNN Embeddings 15k samples
+</p>
+</figure>
+
+The performance is almost identical(refer the notebook) however the t=SNE for the original model looks much better creating discernable clusters. 
+ - Firstly, the GNN embeddings are far inferior to the original ones created using ProtT5, so the obvious way forward would be to use a larger graph database.
+ - I think the graph training strategy should be more robust/diverse i.e training for only the `class` from CATH seems to be very narrow but currently I am unsure how would that be done.(Using architecture, topology, etc from CATH was not possible because in the 15k samples most of the classes would have <5 samples, hence making training the model tough).
+ 
+<hr style="border:5px solid gray">
+
+Reproduction is straight forward and implemented by the authors, so I have not added anything in that front. I wanted to see how much improvement has batch hard soft margin loss achieved over using the classic triplet loss. Using the traditional method has one clear disadvantage - we cannot utilize the CATH heirarchies for the data triplets. In [EAT.ipynb](https://github.com/Chokerino/EAT/blob/main/EAT.ipynb), I have replicated the t-SNE results and generated t-SNE plots for triplet loss. 
 
 <figure>
   <p align = "center">
