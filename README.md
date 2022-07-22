@@ -11,7 +11,7 @@ Only 15k samples were used for now. To compare, the original model was run on th
 <figure>
   <p align = "center">
   <img
-  src="https://github.com/Chokerino/EAT/blob/main/data/ProtTucker/plots/orignal_model_embeddings_15k-min.png"
+  src="https://github.com/Chokerino/EAT/blob/main/data/ProtTucker/plots/orignal_model_embeddings_15k.png"
   alt="Original Embeddings" width="500" height="500" >
   </p>
   <p align = "center">
