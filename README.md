@@ -22,7 +22,7 @@ Only 15k samples were used for now. To compare, the original model was run on th
 <figure>
   <p align = "center">
   <img
-  src="https://github.com/Chokerino/EAT/blob/main/data/ProtTucker/plots/gnn_model_embeddings.png"
+  src="https://github.com/Chokerino/EAT/blob/main/data/ProtTucker/plots/gnn_model_embeddings-min.png"
   alt="Original Embeddings" width="500" height="500" >
   </p>
   <p align = "center">
