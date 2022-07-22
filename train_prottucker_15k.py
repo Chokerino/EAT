@@ -1081,7 +1081,7 @@ def main():
                 ytsne.append(datasplitter.id2label[i][0])
     X_embedded = TSNE(n_components=2, init='random').fit_transform(np.array(xtsne).squeeze(1))
     cdict = {1: 'crimson', 2: 'steelblue', 3: 'limegreen', 4: 'mediumorchid'}
-    fig, ax = plt.subplots(figsize=(20, 20), dpi=1000)
+    fig, ax = plt.subplots(figsize=(20, 20), dpi=100)
     for g in np.unique(np.array(ytsne)):
         ix = np.where(np.array(ytsne) == g)
         ax.scatter(X_embedded[:,0][ix], X_embedded[:,1][ix], c = cdict[g], label = g, s = 100)
